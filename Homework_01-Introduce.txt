@@ -1,0 +1,7 @@
+Q1. Pandas version: '2.3.1'
+Q2. Records count: 9704
+Q3. Fuel types: 2 types
+Q4. Missing values: 4 columns
+Q5. Max fuel efficiency: 23.75
+Q6. Median value of horsepower: Yes, it increased
+Q7. Sum of weights: 0.51
