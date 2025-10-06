@@ -1,0 +1,7 @@
+EDA: Look at the fuel_efficiency_mpg variable. Does it have a long tail? => No, it doesn't
+Q1. There's one column with missing values. What is it? => 'horsepower'
+Q2. What's the median (50% percentile) for variable 'horsepower'? => 149
+Q3. => With mean
+Q4. => 0.01, multiple options give the same best RMSE 0.52
+Q5. => 0.006, but my result is 0.007, i choose the closet one
+Q6. => 0.515
