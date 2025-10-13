@@ -1,0 +1,26 @@
+Q1. What is the most frequent observation (mode) for the column industry? => retail 203
+Q2. 
+    interaction_count and lead_score = 0.009888
+    number_of_courses_viewed and lead_score = -0.004879
+    number_of_courses_viewed and interaction_count = -0.023565 	
+    annual_income and interaction_count = 0.027036 
+=> biggest: annual_income and interaction_count
+Q3. Which of these variables has the biggest mutual information score? => lead_source 0.04
+Q4. What accuracy did you get? => 0.7
+Q5.
+    Remove column lead_source, Accuracy: 0.7030716723549488, Diff: -0.0034129692832765013
+    Remove column industry, Accuracy: 0.6996587030716723, Diff: 0.0
+    Remove column number_of_courses_viewed, Accuracy: 0.5563139931740614, Diff: 0.14334470989761094
+    Remove column annual_income, Accuracy: 0.8532423208191127, Diff: -0.15358361774744034
+    Remove column employment_status, Accuracy: 0.6962457337883959, Diff: 0.0034129692832763903
+    Remove column location, Accuracy: 0.7098976109215017, Diff: -0.010238907849829393
+    Remove column interaction_count, Accuracy: 0.5563139931740614, Diff: 0.14334470989761094
+    Remove column lead_score, Accuracy: 0.7064846416382252, Diff: -0.0068259385665528916
+=> Which of following feature has the smallest difference? => industry
+Q6.
+    With C = 0.01, Accuracy: 0.7
+    With C = 0.1, Accuracy: 0.7
+    With C = 1, Accuracy: 0.7
+    With C = 10, Accuracy: 0.7
+    With C = 100, Accuracy: 0.7
+=> 0.01
