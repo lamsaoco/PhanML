@@ -1,0 +1,16 @@
+Q1.
+    for col: number_of_courses_viewed,  auc is 0.7635680590007088
+    for col: annual_income,  auc is 0.5519578313253012
+    for col: interaction_count,  auc is 0.738270176293409
+    for col: lead_score,  auc is 0.6144993577250176
+=> number_of_courses_viewed
+
+Q2. auc calculated: 0.817 => 0.72
+Q3. 0.745
+Q4. calculated: 0.57 => 0.54
+Q5. calculated: 0.03580711942905165 => 0.06
+Q6. 
+    C=1e-06 0.560 +- 0.024
+    C=0.001 0.867 +- 0.029
+    C=1 0.822 +- 0.036
+=> 0.001
