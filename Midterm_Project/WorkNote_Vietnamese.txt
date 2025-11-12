@@ -1,0 +1,20 @@
+Nguồn dữ liệu: https://www.kaggle.com/datasets/rohitgrewal/hr-data-mnc
+
+Về Dataset:
+- Tập dữ liệu có 2tr row và 12 cột
+- Không có giá trị missing
+
+Data preparation:
+Tôi chỉ giữ lại 500k row để thực hiện dự đoán để tăng tốc độ và trong phạm vi codespace vm có thể thực hiện được các xử lý cần thiết cho ML
+Với tập dữ liệu đầu vào sẽ xóa bỏ các có giá trị unique đi vì không có giá trị khi dự đoán như Unnamed: 0, Employee_ID, Full_Name
+Sau đó tôi biến đổi trường "hire_date" thành "hire_year" chỉ lấy năm của hire_date vì không thể xử lý được trường ngày, nhưng sau đó tôi thử kiểm tra độ tương quan giữa "hire_year" và trường "experience_years" thì thấy độ tương đồng khá cao nên tôi sẽ bỏ trường "hire_year" đi
+Tiếp theo tôi sẽ đánh giá sự phân bổ giá trị của target ở đây là trường "salary_vnd", trường gốc là "salary_inr" nhưng tôi muốn lấy lại theo đơn vị tiền tệ của nước tôi là salary_vnd
+Sau khi xem biểu đổ phân bổ thì thấy rằng giá trị của target nằm vào trường hợp "long tail" nên tôi quyết định sẽ sử dụng hàm np.log1p với target
+Sau nữa là với trường "performance_rating" tôi thấy trường này là kiểu categorical chứ không phải number nên tôi chuyển nó thành dạng categorical
+Cuối cùng là chia tập dữ liệu thành 3 tập dữ liệu training, dữ liệu đánh giá, dữ liệu kiểm tra
+
+Training Model:
+1. LinearRegression: rmse tính được là 0.28708743244601226
+2. DecisionTreeRegressor: 
+    - Đầu tiên thử với max_depth với giá trị trong khoảng np.arange(10, 201, 10) và np.arange(1, 11, 1) đều thấy max_dept = 10 cho giá trị rmse tốt nhất
+    - Sau đó tôi thử với list max_depth trong khoảng np.arange(10, 21, 1) và max_leaf trong khoảng [5, 10, 15, 20, 25, 30] 
