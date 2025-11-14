@@ -5,7 +5,7 @@ Về Dataset:
 - Không có giá trị missing
 
 Data preparation:
-Tôi chỉ giữ lại 500k row để thực hiện dự đoán để tăng tốc độ và trong phạm vi codespace vm có thể thực hiện được các xử lý cần thiết cho ML
+Tôi chỉ giữ lại 600k row để thực hiện dự đoán để tăng tốc độ và trong phạm vi codespace vm có thể thực hiện được các xử lý cần thiết cho ML
 Với tập dữ liệu đầu vào sẽ xóa bỏ các có giá trị unique đi vì không có giá trị khi dự đoán như Unnamed: 0, Employee_ID, Full_Name
 Sau đó tôi biến đổi trường "hire_date" thành "hire_year" chỉ lấy năm của hire_date vì không thể xử lý được trường ngày, nhưng sau đó tôi thử kiểm tra độ tương quan giữa "hire_year" và trường "experience_years" thì thấy độ tương đồng khá cao nên tôi sẽ bỏ trường "hire_year" đi
 Tiếp theo tôi sẽ đánh giá sự phân bổ giá trị của target ở đây là trường "salary_vnd", trường gốc là "salary_inr" nhưng tôi muốn lấy lại theo đơn vị tiền tệ của nước tôi là salary_vnd
