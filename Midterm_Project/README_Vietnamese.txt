@@ -1,5 +1,5 @@
 Data source: https://www.kaggle.com/datasets/rohitgrewal/hr-data-mnc
-How to download this, run the following code:
+How to download this, run the following bash script:
     wget https://www.kaggle.com/api/v1/datasets/download/rohitgrewal/hr-data-mnc
     unzip hr-data-mnc -d hr_data
     

@@ -1,7 +1,7 @@
 Nguồn dữ liệu: https://www.kaggle.com/datasets/rohitgrewal/hr-data-mnc
 
 Về Dataset:
-- Tập dữ liệu có 2tr row và 12 cột
+- Tập dữ liệu gốc có 2tr row và 12 cột
 - Không có giá trị missing
 
 Data preparation:
@@ -14,7 +14,21 @@ Sau nữa là với trường "performance_rating" tôi thấy trường này l�
 Cuối cùng là chia tập dữ liệu thành 3 tập dữ liệu training, dữ liệu đánh giá, dữ liệu kiểm tra
 
 Training Model:
-1. LinearRegression: rmse tính được là 0.28708743244601226
-2. DecisionTreeRegressor: 
-    - Đầu tiên thử với max_depth với giá trị trong khoảng np.arange(10, 201, 10) và np.arange(1, 11, 1) đều thấy max_dept = 10 cho giá trị rmse tốt nhất
-    - Sau đó tôi thử với list max_depth trong khoảng np.arange(10, 21, 1) và max_leaf trong khoảng [5, 10, 15, 20, 25, 30] 
+1. LinearRegression: 
+    rmse: 0.287
+    r2: 0.498
+    mape: 1.3%
+2. DecisionTreeRegressor: max_depth=10, max_leaf_nodes=15, min_samples_leaf=4200
+    rmse: 0.288
+    r2: 0.495
+    mape: 1.3%
+3. RandomForestRegressor: n_estimators=45, max_depth=10, max_leaf_nodes=15, max_features=150
+    rmse: 0.288
+    r2: 0.495
+    mape: 1.3%
+4. XGBoost: eta=0.3, max_depth=10, min_child_weight=1, num_boost_round=81, verbose_eval=5
+    rmse: 0.289
+    r2: 0.491
+    mape: 1.3%
+
+Kết quả của 4 model trên đều gần như nhau nên tôi sẽ chọn đại model XGBoost làm model cuối cùng để triển khai
