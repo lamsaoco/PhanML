@@ -17,7 +17,7 @@ def load_data():
     file_path = "HR_Data_MNC_Data Science Lovers.csv"
 
     # Load the latest version
-    df = kagglehub.load_dataset(
+    df = kagglehub.dataset_load(
     KaggleDatasetAdapter.PANDAS,
     "rohitgrewal/hr-data-mnc",
     file_path,
@@ -37,32 +37,50 @@ def load_data():
     del df['salary_inr']
     del df['hire_date']
 
+    performance_rating_values = {
+        1: 'rating1',
+        2: 'rating2',
+        3: 'rating3',
+        4: 'rating4',
+        5: 'rating5'
+    }
+    df.performance_rating = df.performance_rating.map(performance_rating_values)
+
     return df
 
+
 def train_model(df):
-    y = np.log1p(df['salary_vnd'])
+    y_train = np.log1p(df['salary_vnd'])
     del df['salary_vnd']
+
     train_dicts = df.to_dict(orient='records')
     dv = DictVectorizer(sparse=False)
     dv.fit(train_dicts)
     X_train = dv.transform(train_dicts)
+    features = dv.get_feature_names_out().tolist()
     dtrain = xgb.DMatrix(X_train, label=y_train, feature_names=features)
 
     xgb_params = {
             'eta': 0.3, 
             'max_depth': 10,
-            'min_child_weight': 1,
-
+            'min_child_weight': 1,      
             'objective': 'reg:squarederror',
             'nthread': 8,
-            'eval_metric': 'rmse',
-
+            'eval_metric': 'rmse',     
             'seed': 42,
             'verbosity': 1,
         }
-
     model = xgb.train(xgb_params, dtrain, num_boost_round=81, verbose_eval=5)
 
-    return model
+    return dv, model
 
+def save_model(dv, model, output_file):
+    with open(output_file, 'wb') as f_out:
+        pickle.dump((dv, model), f_out)
+
+df = load_data()
+dv, model = train_model(df)
+save_model (dv, model, 'ml_xgboost.bin')
+
+print('Model saved to ml_xgboost.bin')
 
