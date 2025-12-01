@@ -1,0 +1,6 @@
+Q1. nn.CrossEntropyLoss()
+Q2. Calculated "Total params: 20,073,473" => 20073473
+Q3. Calculated 0.4869 => 0.40
+Q4. Calculated 0.022565313890241398 => Choose the lowest answer 0.007
+Q5. AVG test loss: 0.4869 => 0.88
+Q6. AVG test acc in 6 - 10 epochs: 0.4965 => 0.68
