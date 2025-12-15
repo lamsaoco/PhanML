@@ -1,0 +1,7 @@
+Q1. 0.49999999999842815 => 0.49
+Q2. kind version 0.30.0
+Q3. Pod
+Q4. ClusterIP
+Q5. kind load docker-image
+Q6. 9696/TCP
+Q7. subscription
